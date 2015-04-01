@@ -430,7 +430,7 @@ Looks up login information from your conf/database.sql file."
                                                        (concat (file-name-nondirectory
                                                                 (directory-file-name (rinari-root)))
                                                                "_" environment)))
-          (when (string-match-p "sqlite" adapter)
+          (when (string= "sqlite" product)
             ;; Always expand sqlite DB filename relative to RAILS_ROOT
             (setq sql-database (expand-file-name sql-database (rinari-root))))
           (set (make-local-variable 'sql-server) (or (cdr (assoc 'host database-alist)) "localhost"))
